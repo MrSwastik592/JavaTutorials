@@ -1,20 +1,31 @@
 import javax.swing.*;
+import java.awt.*;
 
-public class Tut_6_02 extends JFrame {
+public class Tut_6_02 {
 
-    Tut_6_02() {
-        JTextArea ta = new JTextArea();
-        // JScrollPane sp = new JScrollPane(ta);
+    private static void GUI() {
 
-        add(ta);
-        // add(sp);
+        final JFrame f = new JFrame();
 
-        this.setLayout(null);
-        this.setSize(400, 500);
-        this.setVisible(true);
+        f.setSize(500, 500);
+        f.setVisible(true);
+        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        f.getContentPane().setLayout(new FlowLayout());
+
+        JTextArea t = new JTextArea(20, 20);
+        JScrollPane s1 = new JScrollPane(t);
+
+        s1.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+        s1.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+        f.getContentPane().add(s1);
     }
 
     public static void main(String[] args) {
-        new Tut_6_02();
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {
+
+            public void run() {
+                GUI();
+            }
+        });
     }
 }

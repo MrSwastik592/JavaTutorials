@@ -1,11 +1,12 @@
 import java.awt.*;
 import java.awt.event.*;
 
-public class Tut_5 extends Frame {
+public class Tut_5 extends Frame implements ActionListener {
     MenuBar mb;
     MenuItem m1, m2, m3, m4;
     Menu mn;
     MenuShortcut ms;
+    Label l;
 
     Tut_5() {
         setTitle("MenuBar Demo");
@@ -17,6 +18,8 @@ public class Tut_5 extends Frame {
         m2 = new MenuItem("Open...");
         m3 = new MenuItem("Save As...");
         m4 = new MenuItem("Exit", ms);
+        l = new Label("");
+
         mn.add(m1);
         mn.add(m2);
         mn.add(m3);
@@ -28,6 +31,17 @@ public class Tut_5 extends Frame {
 
         // Answer :-
         setMenuBar(mb);
+
+        m1.addActionListener(this);
+        add(l);
+
+    }
+
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == m1) {
+            l.setText("New File Opened");
+        }
+
     }
 
     public static void main(String[] args) {

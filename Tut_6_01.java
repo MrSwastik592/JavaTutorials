@@ -15,5 +15,6 @@ public class Tut_6_01 extends JFrame {
 
     public static void main(String[] args) {
         new Tut_6_01();
+
     }
 }
